@@ -1,6 +1,5 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN">
 <!-- 
-The contents of div#webclient are:
 Copyright (c) 2011, Paul Albee 
 All rights reserved. 
 
@@ -62,7 +61,9 @@ var djConfig = {
 </script>
     </head>
     <body class="claro">
-        <h1>PcP Bridge Web Client</h1>
+        <div class="auth"><h2>PcP Bridge Web Client Authentication</h2></div>
+        <div class="upload hide"><h2>File Selection</h2></div>
+        <div class="results hide"><h2>Upload Status</h2></div>
         <form id="formNode" enctype="multipart/form-data" method="post" name="formNode">
             <div class="auth">
                 <label for="user">Global ID</label><input type="text" name="user" id="user"><br>
@@ -70,13 +71,11 @@ var djConfig = {
                 <button id="retrieveWorkflowsButton" type="button">Login</button><br>
             </div>
             <div class="upload hide">
-                <label for="workflow">Workflow</label><select name="workflow" id="workflow">
-                    </select><br>
+                <label for="workflow">Workflow</label><select name="workflow" id="workflow"></select><br>
                 <label for="title">Title</label><br>
                 <input type="text" name="title" id="title"><br>
                 <label for="description">Description</label><br>
-                <textarea name="description" id="description" rows="10" cols="40">
-</textarea><br>
+                <textarea name="description" id="description" rows="10" cols="40"></textarea><br>
                 <input type="hidden" name="uuid" id="uuid"><br>
                 <input id="file" name="file" type="file"><br>
             </div>
@@ -84,8 +83,8 @@ var djConfig = {
         <p>
             <button class="upload hide" id="uploadFileButton">Upload Podcast</button>
         </p>
-        <div id="authinstructions" class="auth">Login Instructions</div>
-        <div id="uploadinstructions" class="upload hide">Upload Instructions</div>
+        <div id="authinstructions" class="auth"><h3>Login Instructions</h3><p>Please use your Central Michigan University username and password.</p?></div>
+        <div id="uploadinstructions" class="upload hide"><h3>Upload Instructions</h3> </div>
         <div id="results" class="results hide">
             <p name="status"></p>
             <p name="upload_uuid"></p>
