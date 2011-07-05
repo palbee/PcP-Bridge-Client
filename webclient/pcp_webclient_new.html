@@ -1,0 +1,211 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+    <head>
+        <title>Upload Your Video to Chipcast</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <script language="JavaScript" type="text/javascript">
+            var refresh = 5;
+            var seconds = refresh;
+
+            function webcamRefresh()
+            {
+                document.form.counter.value = --seconds;
+                if (seconds <= 0)
+                {
+                    var now = new Date();
+                    var imageURL = "http://141.209.23.195/webcam.jpg" + "?" + now.getTime();
+                    document.webcam.src = imageURL;
+                    seconds = refresh;
+                }
+                refreshTimer = setTimeout("webcamRefresh()", 1000);
+            }
+        </script>
+        <style type="text/css" media="screen">
+            .hide {display:none;}
+        </style>
+        <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/dojo/1.6.0/dojox/widget/Standby/Standby.css" media="screen" type="text/css" />
+        <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/dojo/1.6.0/dijit/themes/claro/claro.css" media="screen" type="text/css" />
+        <script type="text/javascript">
+            var djConfig = {
+                parseOnLoad: true,
+                dojoBlankHtmlUrl : "blank.html",
+            };
+        </script>
+        <script src="http://ajax.googleapis.com/ajax/libs/dojo/1.6.0/dojo/dojo.xd.js" type="text/javascript"></script>
+        <script src="pcp.js" type="text/javascript"></script>
+        <link rel="stylesheet" href="http://chipcast.cmich.edu/css/cmu.css" type="text/css" media="screen" charset="utf-8" />
+        <link rel="stylesheet" href="http://chipcast.cmich.edu/css/cmu-internal.css" type="text/css" media="screen" charset="utf-8" />
+        <link rel="stylesheet" href="http://chipcast.cmich.edu/css/cmu-print.css" type="text/css" media="print" charset="utf-8" />
+        <script src="../javascripts/prototype.js" type="text/javascript"></script>
+        <script src="../javascripts/effects.js" type="text/javascript"></script>
+        <script src="../javascripts/application.js" type="text/javascript"></script>
+        <script type="text/javascript" src="http://a.vimeocdn.com/combine.php?type=js&amp;version=9f101&amp;files=mootools.v1.11_jsmin,mootools_ext,lab,embed,domain_embed,moo_rainbow,flash.detection,swfobject.v2.2,video_settings,video,upload,files_styler,forage&amp;ssl=0"></script>
+        <script type="text/javascript">
+            function MM_swapImgRestore() { //v3.0
+                var i,x,a=document.MM_sr; 
+                for(i=0;a&&i<a.length&&(x=a[i])&&x.oSrc;i++){
+                    x.src=x.oSrc;
+                }
+            }
+
+        function MM_preloadImages() { //v3.0
+        var d=document; if(d.images){ if(!d.MM_p) d.MM_p=new Array();
+        var i,j=d.MM_p.length,a=MM_preloadImages.arguments; for(i=0; i<a.length; i++)
+        if (a[i].indexOf("#")!=0){ d.MM_p[j]=new Image; d.MM_p[j++].src=a[i];}}
+        }
+
+        function MM_findObj(n, d) { //v4.01
+        var p,i,x;  if(!d) d=document; if((p=n.indexOf("?"))>0&&parent.frames.length) {
+        d=parent.frames[n.substring(p+1)].document; n=n.substring(0,p);}
+        if(!(x=d[n])&&d.all) x=d.all[n]; for (i=0;!x&&i<d.forms.length;i++) x=d.forms[i][n];
+        for(i=0;!x&&d.layers&&i<d.layers.length;i++) x=MM_findObj(n,d.layers[i].document);
+        if(!x && d.getElementById) x=d.getElementById(n); return x;
+        }
+
+        function MM_swapImage() { //v3.0
+        var i,j=0,x,a=MM_swapImage.arguments; document.MM_sr=new Array; for(i=0;i<(a.length-2);i+=3)
+        if ((x=MM_findObj(a[i]))!=null){document.MM_sr[j++]=x; if(!x.oSrc) x.oSrc=x.src; x.src=a[i+2];}
+        }
+        </script>
+        <script type="text/javascript">
+//<![CDATA[
+        // Popup window code
+        function newPopup(url) {
+        popupWindow = window.open(
+        url,'popUpWindow','height=600,width=700,left=10,top=10,resizable=no,scrollbars=no,toolbar=no,menubar=no,location=no,directories=no,status=yes')
+        }
+        //]]>
+        </script>
+    </head>
+    <body onload="MM_preloadImages('http://chipcast.cmich.edu/images/wordmarkslogos/submitfile.jpg')">
+        <div id="container">
+            <div id="header">
+                <a href="http://www.cmich.edu" id="home-link" name="home-link">Central Michigan University</a>
+                <h1>
+                    <a href="http://www.cmich.edu"><span id="site-title">Central Michigan University</span></a>
+                </h1><a id="skiptocontent" href="#content" title="Skip past the navigation" tabindex="1" accesskey="s" name="skiptocontent">Skip to content</a>
+            </div><!-- #include file="../includes\banner_gold.inc" --><!-- #include file="../includes\nav_primary.inc" -->
+            <div>
+                <a href="/index.html"><img src="../images/wordmarkslogos/chipcast-webheader2.jpg" border="0" usemap="#Map" /></a> <!--<h2>Chipcast</h2><p>(Text for your web site can be placed here.)</p>-->
+            </div>
+            <div id="content">
+                <div id="mainpanel">
+                    <div class="claro" id='webclient'>
+                        <h1>
+                            PcP Bridge Web Client
+                        </h1>
+                        <form id="formNode" enctype="multipart/form-data" method="post" name="formNode">
+                            <div class="auth">
+                                <label for="user">Global ID</label><input type="text" name="user" id="user" /><br />
+                                <label for="password">Your Password</label><input type="password" name="password" id="password" /><br />
+                                <button id="retrieveWorkflowsButton" type="button">Login</button><br />
+                            </div>
+                            <div class="upload hide">
+                                <label for="workflow">Workflow</label><select name="workflow" id="workflow">
+                                    </select><br />
+                                <label for="title">Title</label><br />
+                                <input type="text" name="title" id="title" /><br />
+                                <label for="description">Description</label><br />
+                                <textarea name="description" id="description" rows="10" cols="40">
+          
+</textarea><br />
+                                <input type="hidden" name="uuid" id="uuid" /><br />
+                                <input id="file" name="file" type="file" /><br />
+                            </div>
+                        </form>
+                        <p>
+                            <button class="upload hide" id="uploadFileButton">Upload Podcast</button>
+                        </p>
+                        <div id="authinstructions" class="auth">
+                            Login Instructions
+                        </div>
+                        <div id="uploadinstructions" class="upload hide">
+                            Upload Instructions
+                        </div>
+                        <div id="results" class="results hide">
+                            <p name="status"></p>
+                            <p name="upload_uuid"></p>
+                        </div>
+                        <div jsid="standby" dojotype="dojox.widget.Standby" target="formNode"></div>
+                    </div><!-- END: Main content of page -->
+                </div>
+                <div id="sidepanel">
+                    <div class="nav">
+                        <h3>
+                            <a href="/" title="Go to the main page of this section">Helpful Links</a>
+                        </h3>
+                        <ul id="sidenav">
+                            <li>
+                                <a href="http://facitprojects.cmich.edu/downloads/PcPv2.zip">Get Recording Software (PC)</a>
+                            </li>
+                            <li>
+                                <a href="JavaScript:newPopup('http://podcast.cmich.edu:8171/2011-06-28/CHP3.mp4');">View a Sample Video</a>
+                            </li>
+                            <li>
+                                <a href="http://chipcast.cmich.edu/pages/quickguide.html#pc" target="_blank">View Quick Guides</a>
+                            </li>
+                        </ul>
+                    </div><!--<div class="nav"> 
+    <h3><strong>Helpful Links</strong></h3> 
+ 
+    <ul id="sidenav"> 
+                <li><a href="/pages/rooms.html">Chipcast Classroom List</a></li> 
+ 
+    <li><a href="/pages/faqs.html">Frequently Answered Questions</a></li> 
+    <li><a href="/pages/quickguide.html">Quick Guides</a></li> 
+    </ul> 
+ 
+</div> 
+ -->
+                    <div class="box">
+                        <h3>
+                            <a href="http://facitprojects.cmich.edu/forms/globalchipcast.php?page=workflowform">Workflow Request Form</a>
+                        </h3><a href="http://facitprojects.cmich.edu/forms/globalchipcast.php?page=workflowform" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Wfr Image','','/images/wf_request_homer.jpg',1)"><img src="/images/wf_request_home.jpg" alt="Wfr Image" width="235" height="82" border="0" id="Wfr Image" /></a> <a href="http://facitprojects.cmich.edu/forms/globalchipcast.php?page=workflowform"></a>
+                        <p>
+                            Workflows automatically edit, encode, and upload your podcast.
+                        </p>
+                    </div><!--<div class="box"> 
+            
+            
+                <h3><a href="https://podcast.cmich.edu:8170/podcastproducer/capture/login">Submit File or Record</a></h3> 
+                
+                <a href="https://podcast.cmich.edu:8170/podcastproducer/capture/login" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Web Controller FAQs','','../images/wordmarkslogos/submitfile.jpg',1)"><img src="../images/wordmarkslogos/submitfile2.jpg" width="235" height="82" border="0" id="Web Controller FAQs" /></a> <a href="https://chipcast.cmich.edu/start"> </a> 
+            <p>Click to launch the Chipcast Web Controller and begin publishing content. (Note: requires consultation with FaCIT staff.)</p> 
+                <p><a href="mailto:coffm1pc@cmich.edu">E-mail FaCIT</a></p> 
+            </div> -->
+                </div>
+            </div>
+            <div id="footer">
+                <p>
+                    CMU, an <a href="http://www.cmich.edu/x1533.xml">AA/EO</a> institution, strongly and actively strives to increase diversity and provide equal opportunity within its community.
+                </p>
+                <p>
+                    <a href="http://www.cmich.edu/x1532.xml">Copyright ©</a> Central Michigan University, Mount Pleasant, Mich. 48859 | Phone 989-774-4000 | <a href="http://www.cmich.edu/x2220.xml">Privacy Policy</a> | <a href="http://www.cmich.edu/x1533.xml">AA/EO</a>
+                </p>
+            </div><!--Google Analytic Tracking Code
+<script src="http://www.google-analytics.com/urchin.js" type="text/javascript"></script>
+ 
+<script type="text/javascript">
+  _uacct = "UA-1038055-1";
+  _udn="www.cmich.edu"; 
+  urchinTracker();
+</script> 
+    #include file="../includes\footer_nav.inc" -->
+        </div><script type="text/javascript">
+//<![CDATA[
+
+        var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+        document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+        //]]>
+        </script><script type="text/javascript">
+//<![CDATA[
+
+        try {
+        var pageTracker = _gat._getTracker("UA-9348569-1");
+        pageTracker._trackPageview();
+        } catch(err) {}
+        //]]>
+        </script>
+    </body>
+</html>
