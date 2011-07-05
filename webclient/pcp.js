@@ -64,7 +64,7 @@ dojo.ready(function(){
     dojo.connect(dojo.byId("title"), "onchange", uploadEnable);
     dojo.connect(dojo.byId("description"), "onchange", uploadEnable);
     dojo.connect(dojo.byId("title"), "onkeyup", uploadEnable);
-    dojo.connect(dojo.byId("description"), "onkeyup", uploadEnable);
+   // dojo.connect(dojo.byId("description"), "onkeyup", uploadEnable);
     dojo.connect(dojo.byId("file"), "onchange", uploadEnable);
     dojo.connect(dojo.byId("user"), "onkeypress", function(evt){if(evt.keyCode == 13) dojo.byId("password").focus();});
     dojo.connect(dojo.byId("password"), "onkeypress", function(evt){if(evt.keyCode == 13) retrieveWorkflows(evt);});
@@ -74,11 +74,12 @@ dojo.ready(function(){
 
 function uploadEnable(){
     var titleLen = dojo.byId("title").value.length;
-    var descrLen = dojo.byId("description").value.length;
+   // var descrLen = dojo.byId("description").value.length;
     var workflowCount = dojo.byId('workflow').length;
     var gotFile = dojo.byId('file').value.length == 0;
     var button = dojo.byId("uploadFileButton");
-    button.disabled = (titleLen == 0 || descrLen == 0 || workflowCount == 0 | gotFile);
+   // button.disabled = (titleLen == 0 || descrLen == 0 || workflowCount == 0 | gotFile);
+    button.disabled = (titleLen == 0 || workflowCount == 0 | gotFile);
 }
 
 function report_errors(error){
