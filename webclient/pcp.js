@@ -38,8 +38,8 @@ dojo.require("dojox.json.ref");
 dojo.require("dojox.widget.Standby");
 dojo.require("dojox.xml.parser");
 
-//var base_url = "http://127.0.0.1:9000/pcpbridge/"
-var base_url = "https://bridge.cmich.edu/pcpbridge/"
+var base_url = "https://hackworth/pcpbridge/"
+// var base_url = "https://bridge.cmich.edu/pcpbridge/"
 var workflow_url = base_url + "workflows"
 var upload_url = base_url + "upload"
 var standby;
@@ -90,18 +90,16 @@ function report_errors(error){
 }
 
 function populate_workflows(newContent){
-    var options;
+    var options = new Array();
     var errors;
     
     // Extract workflow list or errors from newContent.
     dojo.withDoc(newContent, function(){
         errors = dojo.query("div[name='error']");
         if (errors.length == 0){
-            errors = ""
-            var stringrep = "";
-            options = dojo.query("select[name=workflow] *");
-            options.forEach(function(node, index, nodeList){stringrep += node.outerHTML;})
-            options = stringrep;
+            errors = "";
+            var entries = dojo.query("select[name=workflow] *");
+            entries.forEach(function(node, index, nodeList){options.push({value:node.value, title:node.title, innerHTML:node.text});});
         } else {
             errors = errors[0].innerHTML;
         }
@@ -116,9 +114,14 @@ function populate_workflows(newContent){
     // Present the workflows in the interface.
     var updateTarget= dojo.query("#formNode select[name=workflow]");
     updateTarget.empty();
-    var tempdiv = dojo.create("div", { innerHTML:options });
-    options = tempdiv.innerHTML;
-    updateTarget.addContent(options);
+    updateTarget = updateTarget[0];
+    // var tempdiv = dojo.create("div", { innerHTML:options });
+    // options = tempdiv.innerHTML;
+    // updateTarget.addContent(options);
+
+    options.forEach(function(node, index, nodelist){
+        var option = dojo.create("option",node, updateTarget);
+    });
     uploadEnable();
     dojo.byId("uuid").value = dojo.byId("workflow").value;
     dojo.query(".auth").addClass("hide");
@@ -152,8 +155,8 @@ function check_status(newContent){
     // console.log(status_text);
     // console.log(status_code);
     // console.log(upload_uuid);
-    dojo.query("div#results p[name=status]")[0].innerText = "Status : " + status_text + " ("+ status_code +")";
-    dojo.query("div#results p[name=upload_uuid]")[0].innerText = "Upload ID : " + upload_uuid;
+    dojo.query("div#results p[name=status]")[0].innerHTML = "Status : " + status_text + " ("+ status_code +")";
+    dojo.query("div#results p[name=upload_uuid]")[0].innerHTML = "Upload ID : " + upload_uuid;
     dojo.query(".upload").addClass("hide");
     dojo.query(".results").removeClass("hide");
     standby.hide();
