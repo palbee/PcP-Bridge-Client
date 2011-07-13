@@ -35,11 +35,9 @@ http://bugs.dojotoolkit.org/browser/dojo/trunk/LICENSE
         <meta charset="utf-8">
         <title>PcP Bridge Web Client</title>
         <style type="text/css" media="screen">
-            .hide {display:none;>
+            .hide {display:none;}
        </style>
-      <!-- The next two lines should be replaced with a local dojo install -->
-      <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/dojo/1.6.0/dojox/widget/Standby/Standby.css"; media="screen">
-        <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/dojo/1.6.0/dijit/themes/claro/claro.css" media="screen">
+        <link rel="stylesheet" href="/dojo-release-1.6.1/dijit/themes/claro/claro.css" media="screen">
         <!-- load dojo and provide config via data attribute -->
 
         <script type="text/javascript">
@@ -48,16 +46,11 @@ var djConfig = {
                     // isDebug: true,
                     // locale: 'en-us',
                     // extraLocale: ['ja-jp']
-                    dojoBlankHtmlUrl : "blank.html",
+                    dojoBlankHtmlUrl : "/dojo-release-1.6.1/dojo/resources/blank.html",
                 };
         </script>
-              <!-- The next line should be replaced with a local dojo install -->
-        <script src="http://ajax.googleapis.com/ajax/libs/dojo/1.6.0/dojo/dojo.xd.js" type="text/javascript">
+        <script src="/dojo-release-1.6.1/dojo/dojo.js" type="text/javascript">
         </script>
-
-        <!-- <script src="/Users/albee/Development/Languages/Javascript/dojo-release-1.6.1-src/release/dojo/dojo/dojo.xd.js" type="text/javascript" charset="utf-8">
-        </script> -->
-
 
         <script src="pcp.js" type="text/javascript">
 </script>
@@ -85,7 +78,7 @@ var djConfig = {
         <p>
             <button class="upload hide" id="uploadFileButton">Upload Podcast</button>
         </p>
-        <div id="authinstructions" class="auth"><h3>Login Instructions</h3><p>Please use your Central Michigan University username and password.</p?></div>
+        <div id="authinstructions" class="auth"><h3>Login Instructions</h3><p>Please use your Central Michigan University username and password.</p></div>
         <div id="uploadinstructions" class="upload hide"><h3>Upload Instructions</h3> </div>
         <div id="results" class="results hide">
             <p name="status"></p>
@@ -95,3 +88,4 @@ var djConfig = {
         </div>
     </body>
 </html>
+
