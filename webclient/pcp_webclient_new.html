@@ -37,8 +37,11 @@ http://bugs.dojotoolkit.org/browser/dojo/trunk/LICENSE
     <head>
         <title>Upload Your Video to Chipcast</title>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        
+        
+        
         <script language="JavaScript" type="text/javascript">
-            var refresh = 5;
+            var refresh = 2;
             var seconds = refresh;
 
             function webcamRefresh()
@@ -54,26 +57,37 @@ http://bugs.dojotoolkit.org/browser/dojo/trunk/LICENSE
                 refreshTimer = setTimeout("webcamRefresh()", 1000);
             }
         </script>
+        
+          
+  
+        
         <style type="text/css" media="screen">
-            .hide {display:none;}
+         .hide {display:none;}
         </style>
         <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/dojo/1.6.0/dojox/widget/Standby/Standby.css" media="screen" type="text/css" />
         <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/dojo/1.6.0/dijit/themes/claro/claro.css" media="screen" type="text/css" />
-        <script type="text/javascript">
-            var djConfig = {
-                parseOnLoad: true,
-                dojoBlankHtmlUrl : "blank.html",
-            };
+
+
+
+
+           
+           <script type="text/javascript">
+var djConfig = {
+                    parseOnLoad: true,
+                    // isDebug: true,
+                    // locale: 'en-us',
+                    // extraLocale: ['ja-jp']
+                    dojoBlankHtmlUrl : "blank.html",
+                };
         </script>
+        
         <script src="http://ajax.googleapis.com/ajax/libs/dojo/1.6.0/dojo/dojo.xd.js" type="text/javascript"></script>
         <script src="pcp.js" type="text/javascript"></script>
+        
         <link rel="stylesheet" href="http://chipcast.cmich.edu/css/cmu.css" type="text/css" media="screen" charset="utf-8" />
         <link rel="stylesheet" href="http://chipcast.cmich.edu/css/cmu-internal.css" type="text/css" media="screen" charset="utf-8" />
         <link rel="stylesheet" href="http://chipcast.cmich.edu/css/cmu-print.css" type="text/css" media="print" charset="utf-8" />
-        <script src="../javascripts/prototype.js" type="text/javascript"></script>
-        <script src="../javascripts/effects.js" type="text/javascript"></script>
-        <script src="../javascripts/application.js" type="text/javascript"></script>
-        <script type="text/javascript" src="http://a.vimeocdn.com/combine.php?type=js&amp;version=9f101&amp;files=mootools.v1.11_jsmin,mootools_ext,lab,embed,domain_embed,moo_rainbow,flash.detection,swfobject.v2.2,video_settings,video,upload,files_styler,forage&amp;ssl=0"></script>
+        
         <script type="text/javascript">
             function MM_swapImgRestore() { //v3.0
                 var i,x,a=document.MM_sr; 
@@ -101,6 +115,8 @@ http://bugs.dojotoolkit.org/browser/dojo/trunk/LICENSE
         if ((x=MM_findObj(a[i]))!=null){document.MM_sr[j++]=x; if(!x.oSrc) x.oSrc=x.src; x.src=a[i+2];}
         }
         </script>
+        
+        
         <script type="text/javascript">
 //<![CDATA[
         // Popup window code
@@ -111,7 +127,10 @@ http://bugs.dojotoolkit.org/browser/dojo/trunk/LICENSE
         //]]>
         </script>
     </head>
-    <body onload="MM_preloadImages('http://chipcast.cmich.edu/images/wordmarkslogos/submitfile.jpg')"  class="claro">
+    
+    
+    <body class="claro" onload="webcamRefresh()">
+    
         <div id="container">
             <div id="header">
                 <a href="http://www.cmich.edu" id="home-link" name="home-link">Central Michigan University</a>
@@ -120,48 +139,154 @@ http://bugs.dojotoolkit.org/browser/dojo/trunk/LICENSE
                 </h1><a id="skiptocontent" href="#content" title="Skip past the navigation" tabindex="1" accesskey="s" name="skiptocontent">Skip to content</a>
             </div><!-- #include file="../includes\banner_gold.inc" --><!-- #include file="../includes\nav_primary.inc" -->
             <div>
-                <a href="/index.html"><img src="../images/wordmarkslogos/chipcast-webheader2.jpg" border="0" usemap="#Map" /></a> <!--<h2>Chipcast</h2><p>(Text for your web site can be placed here.)</p>-->
+                <a href="/index.html"><img src="http://chipcast.cmich.edu/images/wordmarkslogos/chipcast-webheader2.jpg" border="0" usemap="#Map" /></a> <!--<h2>Chipcast</h2><p>(Text for your web site can be placed here.)</p>-->
             </div>
+            
+            
             <div id="content">
                 <div id="mainpanel">
-                    <divid='webclient'>
-                        <h2>PcP Bridge Web Client</h2>
-                        <form id="formNode" enctype="multipart/form-data" method="post" name="formNode">
-                            <div class="auth">
-                                <label for="user">Global ID</label><input type="text" name="user" id="user" /><br />
-                                <label for="password">Your Password</label><input type="password" name="password" id="password" /><br />
-                                <button id="retrieveWorkflowsButton" type="button">Login</button><br />
-                            </div>
-                            <div class="upload hide">
-                                <label for="workflow">Workflow</label><select name="workflow" id="workflow">
-                                    </select><br />
-                                <label for="title">Title</label><br />
-                                <input type="text" name="title" id="title" /><br />
-                                <label for="description">Description</label><br />
-                                <textarea name="description" id="description" rows="10" cols="40">
-          
-</textarea><br />
-                                <input type="hidden" name="uuid" id="uuid" /><br />
-                                <input id="file" name="file" type="file" /><br />
-                            </div>
-                        </form>
+                        <div class="auth"><h2>File Uploader</h2> </div>
+                        <div class="upload hide"><h2>File Selection</h2></div>
+        				<div class="results hide"><h2>Upload Status</h2></div>
+                       
+                        
+                        
+           <form id="formNode" enctype="multipart/form-data" method="post" name="formNode">
+                 
+                 
+                 
+                 
+            		<div class="auth">
+            	
+                 		<h3>To get started, please login:<br /></h3>
+                	<table>
+                		<tr><td><h4 for="user">Global ID <input type="text" name="user" id="user"></h4><td>
+                		
+                		<td><h4 for="password">Password <input type="password" name="password" id="password"></h4></td>
+                		<td>
+                		</tr>
+                	</table>	<br><ul><li>
+						<button id="retrieveWorkflowsButton" type="button">Login</button><br></li></ul>
+            		</div>
+            
+            
+            
+            <div class="upload hide">
+            
+                                     <ul>
+            <h3>Select a File to Upload     <input id="file" name="file" type="file"></h3>
+            
+			<div id="uploadinstructions" class="upload hide">
+			<ul>
+				NOTE: File must have one of the following extensions: MP4, MOV, M4V, AIFF, AAC.<br></div>
+				<table ><tr><td>
+               <h3 for="title">Enter a Title</h3></td> <td><h3 for="description">Enter a Description (optional)</h3></td></tr>
+               		<tr>
+               		<td valign="top"> <input type="text" name="title" id="title" size="40"></td>
+                	<td><textarea name="description" id="description" rows="5" cols="40"></textarea> </td></tr></table>
+               		<input type="hidden" name="uuid" id="uuid">
+                
+                <h3 for="workflow">Select a Workflow <select name="workflow" id="workflow"></select></h3>
+                <ul>Workflows edit your video before it's published. This means that the video you upload will have a college-specific intro video added to the beginning, 
+                as well as a title overlay and a CMU watermark. Then the server will encode and publish your file to a web server. Finally, you'll receive an email with a link to your video. 
+                <p> Select any of the <strong>General Use Workflows</strong> if you do not have a custom workflow for your course. If you would like a custom built workflow for your course, simply fill out the form on the right side of this page.
+                <br></ul>
+               
+            </div>
+            
+                            
+         </form>
+                        
+                        
+                        
                         <p>
-                            <button class="upload hide" id="uploadFileButton">Upload Podcast</button>
+                            <button class="upload hide" id="uploadFileButton">Upload Content</button>
                         </p>
+                        
+                        
                         <div id="authinstructions" class="auth">
-                            Login Instructions
+                        
+                        <h3>Guidelines</h3> 
+                                
+                                <ul>
+                                <ol class="rules"> 
+                                    <li> <h5>Files larger than 500MB should be submitted from a lab on campus. </h5> </li> 
+                                     <li><h5>Files must have one of the following extensions: MP4, MOV, M4V, AIF, AAC.</h5></li> 
+                                	<li><h5>Videos are processed on a first-come, first-served basis, so your submission will not begin encoding until jobs previously submitted are complete.</li> 
+                                    <li><h5>During heavy-usage times, submissions may take up to 24hrs to process</h5></li>
+                                    <li><h5>Users will receive a notification email whenever a submission finishes processing.  </li></h5>
+                                    <li><h5>For a real-time view of what's processing, see below:</h5>
+                                         
+                                <p><IMG SRC="http://141.209.23.195/webcam.jpg" WIDTH="320" HEIGHT="240"></p> </li>
+                                
+                                
+                                    </ol>
+            					</ul>
+            					<br>
+                        
+                        
                         </div>
-                        <div id="uploadinstructions" class="upload hide">
-                            Upload Instructions
-                        </div>
+                     
+                       
+                     
+                     
+                <div id="uploadinstructions" class="upload hide">   </div>
+                     
+                     
                         <div id="results" class="results hide">
+                        
+                        <p>
+                 
+                  
+                       		<ul>
+                       		
+                       			<h5>Check your Submission, in real-time (updates every 5 sec)<br><br></h5>
+                       			<IMG NAME="webcam" SRC="http://141.209.23.195/webcam.jpg" WIDTH="320" HEIGHT="240">
+									<FORM NAME="form" style="display:none;">
+									<INPUT NAME="counter" TYPE="text" SIZE="2" VALUE BORDER=0> seconds until refresh
+									</FORM>
+									</p>
+							</ul>
+							
+								<p>Following upload, your submission will be listed on the image above along with a green progress bar. You will also see a colored indicator on the left side of your submission title.
+                       			<ul><li>A green indicator means that the server is processing the submission. </li>
+                       				<li>A blue indicator means that the submission has finished processing and the user has been sent a notification email.</li>
+                       				<li>A red indicator means that the submitted content failed to process. </li>
+                       					<ul>If you notice a red indicator, please verify that your file ends with the appropriate extension (mp4, mov, m4v, aif, or aac) and resubmit your content. 
+                       					If that does not resolve the issue,  please email the "Upload ID" below to coffm1pc@cmich.edu or contact the CMU Media Production office at 989-774-6640. 
+                       					</ul> 
+                       					</li>
+                       						
+                              		  <li><h5>For a real-time view of submitted files go to <a href="http://chipcast.cmich.edu" target="_blank">http://chipcast.cmich.edu</a></h5></li>
+                               
+                             </ul>      </ul> </ul>
+                            
+                         <p><a href="javascript:document.location.reload();"
+							ONMOUSEOVER="window.status='Refresh'"
+							ONMOUSEOUT="window.status='ah... that was good'" ><img src="upload-another.png" 
+ border="0" /></a></p>
+							
                             <p name="status"></p>
+                            
                             <p name="upload_uuid"></p>
-                        </div>
+                            
+ 						</div>
+                                
                         <div jsid="standby" dojotype="dojox.widget.Standby" target="formNode"></div>
-                    </div><!-- END: Main content of page -->
-                </div>
+                        
+                        
+                    </div>
+                    
+                    
+                    <!-- END: Main content of page -->
+            
+                
+                
+                
+                
                 <div id="sidepanel">
+                
+                                              
                     <div class="nav">
                         <h3>
                             <a href="/" title="Go to the main page of this section">Helpful Links</a>
@@ -177,7 +302,10 @@ http://bugs.dojotoolkit.org/browser/dojo/trunk/LICENSE
                                 <a href="http://chipcast.cmich.edu/pages/quickguide.html#pc" target="_blank">View Quick Guides</a>
                             </li>
                         </ul>
-                    </div><!--<div class="nav"> 
+                    </div>
+                    
+                    
+                    <!--<div class="nav"> 
     <h3><strong>Helpful Links</strong></h3> 
  
     <ul id="sidenav"> 
@@ -192,7 +320,7 @@ http://bugs.dojotoolkit.org/browser/dojo/trunk/LICENSE
                     <div class="box">
                         <h3>
                             <a href="http://facitprojects.cmich.edu/forms/globalchipcast.php?page=workflowform">Workflow Request Form</a>
-                        </h3><a href="http://facitprojects.cmich.edu/forms/globalchipcast.php?page=workflowform" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Wfr Image','','/images/wf_request_homer.jpg',1)"><img src="/images/wf_request_home.jpg" alt="Wfr Image" width="235" height="82" border="0" id="Wfr Image" /></a> <a href="http://facitprojects.cmich.edu/forms/globalchipcast.php?page=workflowform"></a>
+                        </h3><a href="http://facitprojects.cmich.edu/forms/globalchipcast.php?page=workflowform" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Wfr Image','','http://chipcast.cmich.edu/images/wf_request_homer.jpg',1)"><img src="http://chipcast.cmich.edu/images/wf_request_home.jpg" alt="Wfr Image" width="235" height="82" border="0" id="Wfr Image" /></a> <a href="http://facitprojects.cmich.edu/forms/globalchipcast.php?page=workflowform"></a>
                         <p>
                             Workflows automatically edit, encode, and upload your podcast.
                         </p>
